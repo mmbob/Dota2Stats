@@ -10,5 +10,22 @@ def index(request):
 	return render(request, 'matches/player.html', context);
 
 def player(request, player_id):
-	context = {'player_id': player_id, Player.objects.};
-	return render(request, 'matches/player.html', context);
+	players = Player.objects.filter(account_id = int(player_id)).values();
+	if len(players) == 0:
+		return HttpResponse("Player not found");
+	elif len(players) == 1:
+		context = {'player': players[0]};
+		return render(request, 'matches/player.html', context);
+	else:
+		return HttpResponse("Player not found");
+
+def match(request, match_id):
+	matches = Match.objects.filter(id = int(match_id)).values();
+	match_players = MatchPlayer.objects.filter(match_id = int(match_id)).values();
+	if len(matches) == 0:
+		return HTTPResponse("Match not found");
+	elif len(matches) == 1:
+		context = {'match': matches[0], 'players': match_players};
+		return render(request, 'matches/match.html', context);
+	else:
+		return HttpResponse("Match not found");

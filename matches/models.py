@@ -39,6 +39,7 @@ class MatchPlayer(models.Model):
 class PlayerMatch(models.Model):
 	player = models.ForeignKey("Player");
 	match = models.ForeignKey("Match");
+	match_player = models.ForeignKey("MatchPlayer");
 
 class Match(models.Model):
 	id = models.IntegerField(unique = True, primary_key = True);
