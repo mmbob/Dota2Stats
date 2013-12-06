@@ -1,31 +1,37 @@
-﻿<!DOCTYPE html>
+﻿{% extends 'matches/base.html' %}
 
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
-<head>
-	<meta charset="utf-8" />
-	<title>Match Details Page</title>
-</head>
-<body>
-	<p>
-		{% if match %}
-		<table>
-			<tr>
-				<th>Match</th>
-				<th>Hero</th>
-				<th>Hero Damage</th>
-			</tr>
-			{% for player in match_players %}
-                <tr>
-                    <td>{{player.name}}</td>
-                    <td>{{player.hero_id}}</td>
-                    <td>{{player.hero_damage}}</td>
-                </tr>
-			{% endfor %}
-		</table>
-		{% else %}
-		No player available.
-		{% endif %}
-	</p>
+{% load staticfiles %}
 
-</body>
-</html>
+{% block page_title %}Match Details{% endblock %}
+
+{% block page_head %}{{ block.super }}
+{% endblock %}
+
+{% block content %}
+<p>
+	{% if match %}
+	<table>
+		<tr>
+			<th>Match</th>
+			<th>Hero</th>
+			<th>Hero Damage</th>
+		</tr>
+		{% for player in players %}
+		<tr>
+			<td>
+				{% if player.account_id != 4294967295 %}
+				<a href="{% url 'player' player.account_id %}">{{player.name}}</a>
+			</td>
+			{% else %}
+			{{player.name}}
+			{% endif %}
+			<td>{{player.hero_id}}</td>
+			<td>{{player.hero_damage}}</td>
+		</tr>
+		{% endfor %}
+	</table>
+	{% else %}
+	No player available.
+	{% endif %}
+</p>
+{% endblock %}

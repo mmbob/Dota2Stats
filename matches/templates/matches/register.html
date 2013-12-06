@@ -1,0 +1,17 @@
+﻿{% extends 'matches/base.html' %}
+
+{% load staticfiles %}
+
+{% block page_title %}Register{% endblock %}
+
+{% block page_head %}{{ block.super }}
+<link rel="stylesheet" href="{% static 'matches/css/register.css' %}">
+{% endblock %}
+
+{% block content %}
+<form id="register-form" action="/register" method="post">
+	{% csrf_token %}
+	{{ form.as_p }}
+	<input type="submit" value="Register" />
+</form>
+{% endblock %}

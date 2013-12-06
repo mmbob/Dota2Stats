@@ -35,8 +35,12 @@
     <Compile Include="Dota2Stats\urls.py" />
     <Compile Include="Dota2Stats\wsgi.py" />
     <Compile Include="Dota2Stats\__init__.py" />
+    <Compile Include="Dota2\webapi.py" />
+    <Compile Include="Dota2\__init__.py" />
     <Compile Include="manage.py" />
+    <Compile Include="matches\forms.py" />
     <Compile Include="matches\models.py" />
+    <Compile Include="matches\tasks.py" />
     <Compile Include="matches\tests.py" />
     <Compile Include="matches\urls.py" />
     <Compile Include="matches\views.py" />
@@ -47,12 +51,35 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Dota2Stats\" />
+    <Folder Include="Dota2\" />
     <Folder Include="matches\" />
+    <Folder Include="matches\static\" />
+    <Folder Include="matches\static\matches\" />
+    <Folder Include="matches\static\matches\css\" />
+    <Folder Include="matches\static\matches\css\dropdown\" />
+    <Folder Include="matches\static\matches\js\" />
+    <Folder Include="matches\static\matches\js\vendor\" />
     <Folder Include="matches\templates\" />
     <Folder Include="matches\templates\matches\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="matches\static\matches\css\main.css" />
+    <Content Include="matches\static\matches\css\main.scss" />
+    <Content Include="matches\static\matches\css\normalize.css" />
+    <Content Include="matches\static\matches\css\normalize.scss" />
+    <Content Include="matches\static\matches\css\register.scss" />
+    <Content Include="matches\static\matches\css\_base.scss" />
+    <Content Include="matches\static\matches\css\_defines.scss" />
+    <Content Include="matches\static\matches\css\_normalize.scss" />
+    <Content Include="matches\static\matches\js\main.js" />
+    <Content Include="matches\static\matches\js\plugins.js" />
+    <Content Include="matches\static\matches\js\vendor\jquery-1.9.0.min.js" />
+    <Content Include="matches\static\matches\js\vendor\modernizr-2.6.2.min.js" />
+    <Content Include="matches\templates\matches\base.html" />
+    <Content Include="matches\templates\matches\index.html" />
+    <Content Include="matches\templates\matches\match.html" />
     <Content Include="matches\templates\matches\player.html" />
+    <Content Include="matches\templates\matches\register.html" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
 </Project>

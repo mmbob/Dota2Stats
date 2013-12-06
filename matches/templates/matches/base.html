@@ -1,0 +1,113 @@
+﻿{% load staticfiles %}
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+ <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+
+	<!-- TODO: Remove this for production -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+	<title>{% block page_title %}Base Page Template{% endblock %}</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width">
+
+	{% block page_head %}
+	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+	<link rel="stylesheet" href="{% static 'matches/css/main.css' %}">
+
+	<!-- Dropdown menu files -->
+
+	<link href="{% static 'matches/css/dropdown/dropdown.css' %}" media="screen" rel="stylesheet" type="text/css" />
+	<link href="{% static 'matches/css/dropdown/theme.css' %}" media="screen" rel="stylesheet" type="text/css" />
+
+	<link rel="icon" type="image/x-icon" href="favicon.ico" />
+
+	<script src="{% static 'matches/js/vendor/modernizr-2.6.2.min.js' %}"></script>
+	{% endblock %}
+</head>
+<body>
+	<!--[if lt IE 7]>
+		<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+	<![endif]-->
+
+	<div id="top"></div>
+	<div id="all">
+		<header id="main_header">
+			<div id="logo_container">
+				<img id="logo" src="http://placehold.it/200x60/4b69a1/ffffff&text=Dota2Stats" width="200" height="60" alt="Dota2Stats" />
+			</div>
+			<nav id="nav">
+				<ul class="dropdown dropdown-horizontal">
+					<li>
+						<a href="{% url 'register' %}">Register</a>
+					</li>
+				</ul>
+				<div style="clear: both;"></div>
+			</nav>
+		</header>
+
+<!--	<aside id="sidebar">
+			<h2>Important Links</h2>
+			<h3>For Parents</h3>
+			<div style="text-align: center">
+				<a class="side_button" href="https://ps.lakeview.misd.net/public/">
+					PowerSchool Portal
+				</a>
+				<a class="side_button" href="http://www.lakeview.misd.net/PDF%20Files/2010-2011/Lakeview%20%20Public%20Schools-Parent%20Portal%20Tutorial.pdf">
+					PowerSchool Tutorial
+				</a>
+			</div>
+			<h3>For Students</h3>
+			<div style="text-align: center">
+				<a class="side_button" href="http://www.lakeview.misd.net/lakeviewhs/Documents/3.14.13%20LHS%20Course%20Book%202013-2014%20Final.pdf">
+					Course Book
+				</a>
+				<a class="side_button" href="http://www.lakeview.misd.net/lakeviewhs/Documents/8.31.12Lakeview%20District%20Handbook%2012-13.pdf">
+					Student Handbook
+				</a>
+				<a class="side_button" href="http://www.itsyouryearbook.com/Lakeview.html">
+					Yearbook
+				</a>
+				<a class="side_button" href="http://www.lakeview.misd.net/lakeviewhs/Documents/6.28.12%20Schedule%202012-13.pdf">
+					Bell Schedule
+				</a>
+				<a class="side_button" href="http://www.thelakeviewhusky.com/">
+					Newspaper
+				</a>
+			</div>
+		</aside>-->
+
+		<section id="content">
+			{% block content %}{% endblock %}
+		</section>
+
+		<footer id="main_footer">
+			<p class="bullet_line">
+				<a href="http://steampowered.com">Powered by Steam</a>
+			</p>
+		</footer>
+	</div>
+
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.0.min.js"><\/script>')</script>
+	<script src="/js/plugins.js"></script>
+	<script src="/js/main.js"></script>
+
+	<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+<!--<script>
+		var _gaq = [['_setAccount', 'UA-XXXXX-X'], ['_trackPageview']];
+		(function (d, t) {
+			var g = d.createElement(t), s = d.getElementsByTagName(t)[0];
+			g.src = ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js';
+			s.parentNode.insertBefore(g, s)
+		}(document, 'script'));
+	</script>-->
+</body>
+</html>

@@ -1,0 +1,25 @@
+{% extends 'matches/base.html' %}
+
+{% load staticfiles %}
+
+{% block page_title %}Home{% endblock %}
+
+{% block page_head %}{{ block.super }}
+{% endblock %}
+
+{% block content %}
+<p>
+	HOME PAGE FOR MEN
+</p>
+<p>
+	<a href="{% url 'register' %}">REGISTER MO' FUCKA</a>
+
+	{% if players %}
+	<ul>
+		{% for player in players %}
+			<li><a href="{% url 'player' player.account_id %}">{{player.name}}</a></li>
+		{% endfor%}
+	</ul>
+	{% endif %}
+</p>
+{% endblock %}

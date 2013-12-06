@@ -1,0 +1,8 @@
+#register-form {
+  text-align: center; }
+  #register-form #id_main {
+    margin: auto;
+    font-size: 150%; }
+  #register-form label {
+    display: block; }
+

@@ -1,0 +1,139 @@
+@import "_normalize";
+@import "_base";
+@import "_defines";
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic);
+@import url(http://fonts.googleapis.com/css?family=Oswald:700);
+
+@mixin ThickAccentBorder($side) {
+	border-#{$side}: 5px solid $AccentColor;
+}
+
+body {
+	font-family: 'Open Sans', "Trebuchet MS", Helvetica, sans-serif;
+	background-color: mix(darken(white, 70%), complement($AccentColor), 90%);
+}
+
+#all {
+	width: 60%;
+	min-width: 800px;
+	margin: 0 auto;
+	padding: 0em;
+	@include ThickAccentBorder(left);
+	@include ThickAccentBorder(right);
+	@include ThickAccentBorder(top);
+	background-color: mix($AccentColor, white, 50%);
+}
+
+#top {
+	border-top: 5px solid $AccentColor;
+}
+
+#main_header {
+	color: white;
+	text-align: center;
+	background-color: $AccentColor;
+}
+
+#nav {
+	clear: both;
+	background-color: darken($AccentColor, 10%);
+	@include ThickAccentBorder(bottom);
+}
+
+#content {
+	padding: 1em;
+	background-color: white;
+	background-color: mix(white, lighten(complement($AccentColor), 0%), 80%);
+//	width: calc(100% - #{$SidebarWidth} - 2em - 2em - 5px);
+//	@include ThickAccentBorder(right);
+}
+
+#sidebar {
+	display: block;
+	float: right;
+	width: $SidebarWidth;
+	height: 100%;
+	margin: 0 0 1em 1em;
+	padding: 0 1em 1em 1em;
+}
+
+#logo_container {
+	background-color: $AccentColor;
+}
+
+#banner {
+	margin: auto;
+	text-align: center;
+	height: 429px;
+	margin: -1em -1em 0 -1em;
+	background-color: $AccentColor;
+	background-image: url(../img/lhsfront.jpg);
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.bullet_line {
+	margin: auto;
+	font-size: 80%;
+	margin: .5em;
+
+	span {
+		padding: .5em .5em .5em 0;
+
+		&:before {
+			content: "•";
+			padding-right: .5em;
+		}
+
+		&:first-child:before {
+			content: none;
+		}
+	}
+}
+
+.normal_button {
+	background-color: lighten($AccentColor, 10%);
+	border: 2px solid darken($AccentColor, 10%);
+	border-bottom: 5px solid darken($AccentColor, 10%);
+	padding: .25em;
+	margin: .25em;
+	display: inline-block;
+
+	text-decoration: none;
+	color: white;
+
+	&:hover, &:focus {
+		background-color: $AccentColor;
+	}
+}
+
+.side_button {
+	@extend .normal_button;
+
+	width: 90%;
+}
+
+#main_footer {
+	clear: both;
+	padding: 1em;
+	background-color: $AccentColor;
+	color: white;
+	text-align: center;
+
+	p {
+		margin: auto;
+		font-size: 70%;
+		width: 60%;
+		min-width: 400px;
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+		font-family: serif;
+	}
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: Oswald, "Arial Black", sans-serif;
+	font-weight: bold;
+}
